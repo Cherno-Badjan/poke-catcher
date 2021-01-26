@@ -39,10 +39,9 @@ export function increaseSeen(_id) {
 
         stats.push(newStat);
     } else {
-        let seenCount = poke.seen++;
-        return seenCount;
+        poke.seen++;
 
-        console.log(seenCount);
+
     }
 
     setPokeStats(stats);
