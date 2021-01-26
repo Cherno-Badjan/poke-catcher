@@ -58,12 +58,3 @@ export function increaseCaught(_id) {
 
     setPokeStats(stats);
 }
-
-export function renderResults(stats) {
-    const caughtCount = stats.caught;
-    console.log(caughtCount);
-
-    return caughtCount;
-
-}
-
