@@ -4,6 +4,9 @@ const POKESTATS = 'POKESTATS';
 //Import findByID function
 import { findById } from './utils.js';
 
+//Import data
+import { pokeData } from './pokemon-data.js';
+
 //Write getPokeStats function (this function captures the data for the number of times a pokemon was seen/caught and sends it to local storage)
 
 export function getPokeStats() {
@@ -31,7 +34,10 @@ export function increaseSeen(_id) {
     const poke = findById(stats, _id);
 
     if (!poke) {
+
+        const pokemonData = findById(pokeData, _id);
         const newStat = {
+            name: pokemonData.pokebase,
             _id: _id,
             seen: 1,
             caught: 0,
