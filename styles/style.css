@@ -20,6 +20,7 @@ body {
     
     font-family: 'Titillium Web', sans-serif;
     background-color: var(--color2);
+   
 }
 
 main {
@@ -58,6 +59,11 @@ header {
     box-shadow: var(--shadow);
 }
 
+ol {
+    font-weight: bolder;
+    color: blueviolet;
+}
+
 footer {
     display: flex;
     justify-content: flex-end;
@@ -68,12 +74,14 @@ footer {
 h1 {
     font-size: 3rem;
     font-weight: bolder;
+    color: blueviolet;
 }
 
 
 h2 {
     font-size: 1.8rem;
     font-weight: bold;
+    color:blueviolet;
 }
 
 .gutter-right {
@@ -127,3 +135,20 @@ footer {
     }
 
   }
+
+.poke-img {
+    cursor: pointer;
+    width: 200px;
+    height: 200px;
+    transition: .2s ease-in-out
+}
+
+
+.poke-img:hover {
+  transform: scale(1.2) rotate(10deg);
+}
+
+
+.poke-img:active {
+  transform: scale(.2) rotate(15deg);
+}

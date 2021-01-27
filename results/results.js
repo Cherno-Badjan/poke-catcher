@@ -43,7 +43,18 @@ var myChart = new Chart(ctx, {
             yAxes: [{
                 ticks: {
                     beginAtZero: true,
-                    stepSize: 1
+                    stepSize: 1,
+
+                }
+            }],
+
+            xAxes: [{
+                ticks: {
+                    beginAtZero: true,
+                    stepSize: 1,
+                    fontSize: 20,
+                    fontColor: 'black'
+
                 }
             }],
         }
