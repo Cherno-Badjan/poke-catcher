@@ -1,5 +1,10 @@
 //import renderResultsTable function
 import { renderResultsTable } from '../results/render-results.js';
+import { getPokeStats } from '../localStorageUtils.js';
+import { makeLabelArray, makeSeenArray, makeCaughtArray } from '../results/munge-utils.js';
+
+const pokeStats = getPokeStats();
+
 
 //Call imported function
 renderResultsTable();
@@ -12,21 +17,35 @@ button.addEventListener('click', () => {
 });
 
 var ctx = document.getElementById('myChart').getContext('2d');
-var chart = new Chart(ctx, {
+var myChart = new Chart(ctx, {
     // The type of chart we want to create
     type: 'bar',
 
     // The data for our dataset
     data: {
-        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+        labels: makeLabelArray(pokeStats),
         datasets: [{
-            label: 'Poke Catcher Results',
+            label: 'Number of times seen',
+            backgroundColor: 'turquoise',
+            borderColor: 'turquoise',
+            data: makeSeenArray(pokeStats)
+        },
+        {
+            label: 'Number of times caught',
             backgroundColor: 'rgb(255, 99, 132)',
             borderColor: 'rgb(255, 99, 132)',
-            data: [0, 10, 5, 2, 20, 30, 45]
-        }]
+            data: makeCaughtArray(pokeStats)
+        },
+        ]
     },
-
-    // Configuration options go here
-    options: {}
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true,
+                    stepSize: 1
+                }
+            }],
+        }
+    }
 });
